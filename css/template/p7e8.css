@@ -45,7 +45,7 @@
     border: none;
     padding: 20px;
     padding-left: 30px;
-    background-image: url(/assets/images/jungle/woodTwo.png);
+    background-image: url(../../assets/images/jungle/woodTwo.png);
 }
 
 #btn {
@@ -57,7 +57,7 @@
     padding: 5px;
     cursor: pointer;
     margin: 20px 0 20px 0;
-    background-image: url(/assets/images/jungle/woodOne.png);
+    background-image: url(../../assets/images/jungle/woodOne.png);
     font-size: 20px;
 }
 
@@ -491,7 +491,7 @@
     position: absolute;
     top: 172px;
     text-align: center;
-    background-image: url(/assets/images/jungle/scoreboard.png);
+    background-image: url(../../assets/images/jungle/scoreboard.png);
     /* transition: opacity 0.3s ease-in-out; */
     width: 434px;
     background-repeat: no-repeat;
