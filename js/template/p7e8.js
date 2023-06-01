@@ -1,17 +1,18 @@
-
 var word;
 var num;
+// let resultOld;
+// let newArray = [];
 var picSrc
 let count = 0
 $("#score-tex").text(count)
 const welcomImg = "assets/images/p7e8/welcome.png"
-var msg = $(".all").find(".content") 
-// playSound("assets/images/jungle/jugle.wav");
-const allWords = ["chita", "crocodile", "elephant", "flamingo", "giraff", "lion", "monkey", "tiger", "turtle", "zebra"];
-var words = ["chita", "crocodile", "elephant", "flamingo", "giraff", "lion", "monkey", "tiger", "turtle", "zebra"];
-var pics = ["assets/images/p7e8/chita.png", "assets/images/p7e8/crocodile.png", "assets/images/p7e8/elephant.png", "assets/images/p7e8/flamingo.png", "assets/images/p7e8/giraff.png", "assets/images/p7e8/lion.png", "assets/images/p7e8/monkey.png", "assets/images/p7e8/tiger.png", "assets/images/p7e8/turtle.png", "assets/images/p7e8/zebra.png"]
-// const voices = window.speechSynthesis.getVoices();
-// console.log(voices)
+var msg = $(".all").find(".content")
+const allWords = ["cat", "pig", "elephant", "flamingo", "giraff", "lion", "monkey", "tiger", "dog", "zebra"];
+var words = ["cat", "pig", "elephant", "flamingo", "giraff", "lion", "monkey", "tiger", "dog", "zebra"];
+var pics = ["assets/images/p7e8/cat.png", "assets/images/p7e8/pig.png", "assets/images/p7e8/elephant.png", "assets/images/p7e8/flamingo.png", "assets/images/p7e8/giraff.png", "assets/images/p7e8/lion.png", "assets/images/p7e8/monkey.png", "assets/images/p7e8/tiger.png", "assets/images/p7e8/dog.png", "assets/images/p7e8/zebra.png"]
+
+
+
 
 function generate() {
 	$("#img").removeClass("rotate")
@@ -23,7 +24,7 @@ function generate() {
 		picSrc = pics[num]
 		$("#img").attr("src", picSrc)
 		let voice = new SpeechSynthesisUtterance()
-	
+		// voice.voice = voices[2]
 		voice.text = word
 		window.speechSynthesis.speak(voice)
 		document.getElementById('inp').value = ''
@@ -32,8 +33,9 @@ function generate() {
 		document.querySelector('#Skip').classList.add("disable")
 		$("#btn").addClass("disable");
 		$("#speak").addClass("disable");
-
-		$('.content').html("<div class= 'pop'><h3>you need to answer!!!!!!!!</h3></div>")
+		// document.querySelector('#lose-img').classList.remove("yp-u-hide")
+		// document.querySelector('#feed').classList.remove("yp-u-hide")
+		$('.content').html("<div class= 'pop'><h3>you need to answer!!</h3><img  class= 'angryCat' src='assets/images/jungle/angryCat.png'><img/></div>")
 
 	} else if (words.length === 0 && count !== 0) {
 
@@ -43,16 +45,60 @@ function generate() {
 	}
 }
 
+
+// function getRandomIndex(arr) {
+// 	let randomIndex = Math.floor(Math.random() * (arr.length))
+// 	let item = arr[randomIndex]
+
+// 	return arr.indexOf(item)
+// }
+
+
+// function generate() {
+// 	$("#img").removeClass("rotate")
+// 	if (words.length > 0) {
+
+
+
+// 		word = getRandomIndex(words);
+
+// 		if (resultOld == word) {
+// 			newArray = words.filter(item => item !== resultOld)
+// 			word = getRandomIndex(newArray);
+// 		}
+// 		resultOld = word;
+// 		picSrc = pics[word]
+
+
+// 		$("#img").attr("src", picSrc)
+// 		let voice = new SpeechSynthesisUtterance()
+// 		voice.text = word
+// 		window.speechSynthesis.speak(voice)
+// 		document.getElementById('inp').value = ''
+// 	} else if (words.length === 0 && count === 0) {
+// 		document.querySelector('#lose-img').classList.add("yp-animate")
+// 		document.querySelector('#Skip').classList.add("disable")
+// 		$("#btn").addClass("disable");
+// 		$("#speak").addClass("disable");
+// 		$('.content').html("<div class= 'pop'><h2>you need to answer!!</h2><img  class= 'angryCat' src='assets/images/jungle/angryCat.png'><img/></div>")
+
+// 	} else if (words.length === 0 && count !== 0) {
+
+// 		checkScoure()
+// 	} else {
+// 	}
+// }
+
 function checkScoure() {
 	$(msg).css("display", "flex");
 	if (count > allWords.length / 2) {
 
-		$('.content').html("<div class= 'pop'><h1>your Scoure is:</h1><h3>" + count + "  out of  " + allWords.length + "</h3><br><h3 class= 'congrts'>Congratulations</h3><img  class= 'happyCat' src='assets/images/jungle/happyCat.png'><img/></div>")
+		$('.content').html("<div class= 'pop'><h1>your Score is:</h1><h3>" + count + "  out of  " + allWords.length + "</h3><br><h3 class= 'congrts'>Congratulations</h3><img  class= 'happyCat' src='assets/images/jungle/happyCat.png'><img/></div>")
 		$('#sub').addClass("disable")
 		$("#Skip").addClass("disable");
 		$("#speak").addClass("disable");
 	} else {
-		$('.content').html("<div class= 'pop'><h1>your Scoure is:</h1><h3>" + count + "  out of  " + allWords.length + "</h3><br><h3 class= 'faild'>try again</h3><img  class= 'sadCat' src='assets/images/jungle/sadCat.png'><img/></div>")
+		$('.content').html("<div class= 'pop'><h1>your Score is:</h1><h3>" + count + "  out of  " + allWords.length + "</h3><br><h3 class= 'faild'>try again</h3><img  class= 'sadCat' src='assets/images/jungle/sadCat.png'><img/></div>")
 
 	}
 	$('#sub').addClass("disable")
@@ -79,8 +125,6 @@ document.getElementById('Skip').addEventListener('click', function () {
 	$("#sub").removeClass("disable");
 	words.splice(num, 1)
 	pics.splice(num, 1)
-	console.log(words);
-	// $('#btn').click()
 	generate()
 
 	setTimeout(() => {
@@ -93,7 +137,7 @@ document.getElementById('sub').addEventListener('click', function () {
 	if (document.getElementById('inp').value.trim() === "") return;
 
 	if (document.getElementById('inp').value.toLowerCase() == word) {
-		$(msg).html(`<div class= 'msg right'><h1>Correct!<img  class= 'correcttick' src='assets/images/jungle/correcttick.png'><img/></h1> <button type="button" id="close-meCorrect" class="btn">close</button></div>`);
+		$(msg).html(`<div class= 'msg right'><h1>Correct!<img  class= 'correcttick' src='assets/images/jungle/correcttick.png'><img/></h1> <button type="button" id="close-meCorr" class="btn">close</button></div>`);
 		words.splice(num, 1)
 		playSound("assets/images/jungle/cat-correct.mp3");
 		pics.splice(num, 1)
@@ -125,12 +169,12 @@ document.getElementById('sub').addEventListener('click', function () {
 		$('#sub').removeClass("disable")
 		$("#Skip").removeClass("disable");
 		$("#speak").removeClass("disable");
+	})
+	$("#close-meCorr").on("click", function () {
+		$(msg).css("display", "none");
 
 	})
-	$("#close-meCorrect").on("click", function () {
-		$(msg).css("display", "none");
-	})
-	console.log(words)
+
 })
 
 document.getElementById('speak').addEventListener('click', function () {
@@ -140,9 +184,8 @@ document.getElementById('speak').addEventListener('click', function () {
 })
 
 function fnReloadAll() {
-	words = ["chita", "crocodile", "elephant", "flamingo", "giraff", "lion", "monkey", "tiger", "turtle", "zebra"];
-	pics = ["assets/images/p7e8/chita.png", "assets/images/p7e8/crocodile.png", "assets/images/p7e8/elephant.png", "assets/images/p7e8/flamingo.png", "assets/images/p7e8/giraff.png", "assets/images/p7e8/lion.png", "assets/images/p7e8/monkey.png", "assets/images/p7e8/tiger.png", "assets/images/p7e8/turtle.png", "assets/images/p7e8/zebra.png"]
-
+	words = ["cat", "pig", "elephant", "flamingo", "giraff", "lion", "monkey", "tiger", "dog", "zebra"];
+	pics = ["assets/images/p7e8/cat.png", "assets/images/p7e8/pig.png", "assets/images/p7e8/elephant.png", "assets/images/p7e8/flamingo.png", "assets/images/p7e8/giraff.png", "assets/images/p7e8/lion.png", "assets/images/p7e8/monkey.png", "assets/images/p7e8/tiger.png", "assets/images/p7e8/dog.png", "assets/images/p7e8/zebra.png"]
 	$("#btn").removeClass("disable");
 	$("#speak").addClass("disable");
 	$("#inp").addClass("disable");
@@ -154,7 +197,6 @@ function fnReloadAll() {
 	document.getElementById('inp').value = ""
 	document.querySelector('#lose-img').classList.remove("yp-animate")
 	count = 0
-	console.log(num);
 	$("#img").attr("src", welcomImg)
 	$("#data").addClass("hide")
 	$("#img").addClass("rotate")
@@ -163,12 +205,16 @@ function fnReloadAll() {
 
 
 }
-$("#playbtn").on("click",function (){
+$("#playbtn").on("click", function () {
 	$("#data").removeClass("hide")
+	const audioEntro = new Audio('./assets/images/jungle/jungle.mp3');
+	audioEntro.loop = true;
+	audioEntro.play();
 	$(".reloadBtnAll").removeClass("disable")
 	count = 0
 	$("#score-tex").text("0")
 })
+
 function fnReloadScreen() {
 	$('div.active').find('.showAns').remove();
 	$('div.active').find('.option').removeClass('disabled optDisable').on('click');
@@ -184,17 +230,17 @@ function fnAudio(obj) {
 
 	if (playPromise !== undefined) {
 		playPromise.then(function (value) {
-				// Automatic playback started!
-				// Show playing UI.
-				$audio1[0].currentTime = 0;
-				$("#slider").slider({
-					"value": 0
-				});
-				$audio1[0].pause();
-				$audio1[0].removeEventListener('timeupdate', fnUpdateTimer);
-				$('#pButton .playImg').show();
-				$('#pButton .pauseImg').hide();
-			})
+			// Automatic playback started!
+			// Show playing UI.
+			$audio1[0].currentTime = 0;
+			$("#slider").slider({
+				"value": 0
+			});
+			$audio1[0].pause();
+			$audio1[0].removeEventListener('timeupdate', fnUpdateTimer);
+			$('#pButton .playImg').show();
+			$('#pButton .pauseImg').hide();
+		})
 			.catch(function (error) {
 				// Auto-play was prevented
 				// Show paused UI.
@@ -231,8 +277,7 @@ function fnTitleAudioClick(obj) {
 	if ($(obj).hasClass('disabled')) {
 		return false;
 	}
-	//$audio1[0].currentTime = 0;
-	//$("#slider").slider({"value": 0});
+
 	$audio1[0].pause();
 	$audio1[0].removeEventListener('timeupdate', fnUpdateTimer);
 	$('#pButton .playImg').show();
@@ -285,48 +330,23 @@ function stopAudio() {
 
 }
 
-const leafOne = document.querySelector(".leafOne");
+const handlerIn = () => {
+	playSound("./assets/images/jungle/leavesSound.mp3")
+}
 
-const srcPrefix = "assets/images/jungle";
-const audio1 = new Audio(`${srcPrefix}/leavesSound.mp3`);
+const handlerOut = () => {
+	let heartBeat = document.querySelector("audio");
+	heartBeat.pause()
+}
 
-leafOne.addEventListener("mouseover", function (e) {
-	audio1.play();
-});
+let movingLeafs = $(".movingLeaf")
 
-leafOne.addEventListener("mouseleave", function (e) {
-	audio1.pause();
-	audio1.currentTime = 0;
-});
-
-
-var playBtn = document.getElementById('play'),
-  resetBtn = document.getElementById('reset'),
-  hearbeat = document.getElementById('heartbeat')
-	audios = document.querySelectorAll('audio');
-console.log(audios);
+movingLeafs.each((index, leaf) => {
+	$(leaf).on("mouseenter", handlerIn).on("mouseleave", handlerOut);
+})
 
 
-playBtn.addEventListener('mouseover', function() {
-[].forEach.call(audios, function(audio) {
-  // do whatever
-  audio.play();
-});
-}, false);
 
-playBtn.addEventListener('mouseleave', function() {
-  heartbeat.pause();
-  heartbeat.currentTime = 0;
-}, false);
-
-resetBtn.addEventListener('mouseover', function() {
-    heartbeat.play();
-}, false);
-
-resetBtn.addEventListener('mouseleave', function() {
-  heartbeat.pause();
-  heartbeat.currentTime = 0;
-}, false);
 
 function setAudio(_src) {
 	if (_src == "") {
@@ -343,8 +363,7 @@ function fnTitleAudioClick(obj) {
 	if ($(obj).hasClass('disabled')) {
 		return false;
 	}
-	//$audio1[0].currentTime = 0;
-	//$("#slider").slider({"value": 0});
+
 	$audio1[0].pause();
 	$audio1[0].removeEventListener('timeupdate', fnUpdateTimer);
 	$('#pButton .playImg').show();
@@ -397,107 +416,29 @@ function stopAudio() {
 
 }
 
-function fnSetPlayer() {
-	if (currentIndex == 1) {
-		$('.backBtn').addClass('disabled');
-	}
 
-	if (totalItems == 1) {
-		$('.navigationControls, .nextBtn, .reloadBtnScreen, .backBtn, .pageNumber').addClass('hide');
-	}
-
-	if ($('.title').attr('data-audioSrc') == "") {
-		$('.title').addClass('hide');
-		$('.headingTitle').removeClass('col-xs-10').addClass('col-xs-11');
-	}
-
-
-	$audio1[0].addEventListener('playing', function () {
-		lastAudio = 1;
-		isMusic1Playing = true;
+function playSound(url) {
+	stopSound();
+	$("audio").each(function () {
+		if (!$(this).parent().hasClass("audio-player")) $(this).remove();
 	});
+	var ourAudio = document.createElement("audio");
+	ourAudio.style.display = "none";
+	ourAudio.src = url;
+	ourAudio.autoplay = true;
+	ourAudio.onended = function () {
+		this.remove();
+	};
+	document.body.appendChild(ourAudio);
+}
 
-	$audio2[0].addEventListener('playing', function () {
-		lastAudio = 2;
-		isMusic2Playing = true;
-	});
-
-	$audio1[0].addEventListener('pause', function () {
-		isMusic1Playing = false;
-	});
-
-	$audio2[0].addEventListener('pause', function () {
-		isMusic2Playing = false;
-	});
-
-	$audio2[0].addEventListener('ended', function () {
-		lastAudio = 0;
-	});
-	$audio1[0].addEventListener('ended', function () {
-		lastAudio = 0;
-		isMusic1Playing = false;
-		$audio1[0].currentTime = 0;
-		slider.value = 0;
-		$audio1[0].pause();
-		$audio1[0].removeEventListener('timeupdate', fnUpdateTimer);
-		$('#pButton .playImg').show();
-		$('#pButton .pauseImg').hide();
-	});
-
-	slider.addEventListener("input", function () {
-		// $audio1[0].pause();
-		$audio1[0].removeEventListener('timeupdate', fnUpdateTimer);
-		var setTime = Math.round((slider.value * $audio1[0].duration) / 100);
-		$audio1[0].currentTime = setTime;
-	}, false);
-	slider.addEventListener("change", function () {
-		if (isMusic1Playing) {
-			$audio1[0].play();
-			$audio1[0].addEventListener('timeupdate', fnUpdateTimer);
+// stop any Sound function
+function stopSound(resetSlider) {
+	$("audio").each(function () {
+		this.pause(); // Stop playing
+		$(this).parent().find(".toggle-play").removeClass("pause").addClass("play");
+		if (resetSlider) {
+			this.currentTime = 0;
 		}
-	}, false);
-
-	$('#myCarousel').on('slid.bs.carousel', function () {
-		currentIndex = $('div.active').index() + 1;
-		$('.pageNumber').html(currentIndex + ' of ' + totalItems);
-		if (currentIndex == 1) {
-			$('.backBtn').addClass('disabled');
-		} else {
-			$('.backBtn').removeClass('disabled');
-		}
-
-		if (currentIndex == totalItems) {
-			$('.nextBtn').addClass('disabled');
-		} else {
-			$('.nextBtn').removeClass('disabled');
-		}
-
-		// need to edit template function name here:
-		fnTemplate1_v1($('div.active'));
 	});
 }
-function playSound(url) {
-    stopSound();
-    $("audio").each(function () {
-      if (!$(this).parent().hasClass("audio-player")) $(this).remove();
-    });
-    var ourAudio = document.createElement("audio");
-    ourAudio.style.display = "none";
-    ourAudio.src = url;
-    ourAudio.autoplay = true;
-    ourAudio.onended = function () {
-      this.remove();
-    };
-    document.body.appendChild(ourAudio);
-  }
-  
-  // stop any Sound function
-  function stopSound(resetSlider) {
-    $("audio").each(function () {
-      this.pause(); // Stop playing
-      $(this).parent().find(".toggle-play").removeClass("pause").addClass("play");
-      if (resetSlider) {
-        this.currentTime = 0;
-      }
-    });
-  }

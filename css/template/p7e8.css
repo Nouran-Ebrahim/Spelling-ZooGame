@@ -753,7 +753,7 @@
     transform: scale(0.99, 0.99);
 }
 
-#close-me , #close-meCorrect {
+#close-me ,#close-meCorr {
     font-size: 2rem;
     outline: none;
 }
@@ -928,7 +928,7 @@
 
 }
 
-.rotate-me1:hover {
+.leafOne:hover {
     animation: rotation1 2s linear;
 }
 
@@ -972,16 +972,24 @@
     animation: palmOne 2s linear;
     transform-origin: right;
 }
-.sadCat{
-    width: 100px;
-    position: relative;
-    top: -92px;
-    left: 110px;
-}
-.happyCat{width: 100px;
+
+.sadCat{width: 100px;
     position: relative;
     top: -92px;
     left: 110px;}
+
+
+    .happyCat{width: 100px;
+        position: relative;
+        top: -92px;width: 100px;
+       left: 136px;}
+  
+
+    .angryCat{
+        width: 168px;
+    position: relative
+    }
+    
 
     .wrongtick{width: 83px;}
     .correcttick{width: 83px;}

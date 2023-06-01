@@ -31,10 +31,10 @@
       <div class="container-fluid noPadding">
         <!-- header start -->
         <div class="col-xs-12 noPadding header">
-          <div class="box1 title" data-audioSrc="assets/audio/p7e8.mp3" onClick="fnTitleAudioClick(this)">
+          <div class="box1 title hide" data-audioSrc="assets/audio/p7e8.mp3" onClick="fnTitleAudioClick(this)">
             <img src="assets/images/audio_icon.png" class="img-responsive" />
           </div>
-          <div class="boxhead5 headingTitle">
+          <div class="boxhead5 headingTitle hide">
             <h1>Listen and write the word.</h1>
           </div>
           <div class="box1">
@@ -64,7 +64,8 @@
 
                     <div class="wrapper">
                       <div class="welcom">
-                        <img class="door-img" style="border-top-left-radius: 12px; border-top-right-radius: 12px;"  src="assets/images/jungle/40340.jpg" alt="minion">
+                        <img class="door-img" style="border-top-left-radius: 12px; border-top-right-radius: 12px;"
+                          src="assets/images/jungle/40340.jpg" alt="minion">
                         <div class="footer-border"></div>
                         <img id="playbtn" src="assets/images/jungle/playButton.png">
                       </div>
@@ -83,23 +84,21 @@
                     <div class="hide" id="data">
 
 
-                      <audio id="heartbeat" src="assets/images/jungle/leavesSound2.wav">
-                     
-                      </audio>
+                      <!-- <audio id="heartbeat" class="heartbeat" src="assets/images/jungle/leavesSound2.wav">
 
-                      <!-- <audio id="jungle" src="assets/images/jungle/jugle.wav">
-                     
                       </audio> -->
 
-                      <img src="assets/images/jungle/jungle.png" alt="" class="bg">
-                     
-                        <img id="play" src="assets/images/jungle/palmOne.png" alt="" class="palmOne">
-                        <img id="reset"  src="assets/images/jungle/palmTwo.png" alt="" class="palmTwo  ">
-                        <img  src="assets/images/jungle/leafOne.png" alt="" class="leafOne rotate-me1">
-                        
-             
 
-                      
+
+                      <img src="assets/images/jungle/jungle.png" alt="" class="bg">
+
+                      <img src="assets/images/jungle/palmOne.png" alt="" class="palmOne movingLeaf">
+                      <img src="assets/images/jungle/palmTwo.png" alt="" class="palmTwo  movingLeaf">
+                      <img src="assets/images/jungle/leafOne.png" alt="" class="leafOne movingLeaf">
+
+
+
+
 
                       <div class="grass">
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -117,18 +116,18 @@
 
                         <div class="over-board">
                           <input type="text" id="inp" class="disable btn two" />
-                           <div id="score" class="score">
-                         
+                          <div id="score" class="score">
+
                             <p id="score-tex"></p>
-                            <img src="assets/images//p7e8/score.png" >
-                           </div>
+                            <img src="assets/images//p7e8/score.png">
+                          </div>
                           <button id="btn" class="btn two">Generate a new word</button>
                           <img src="assets/images/jungle/stand.png" alt="" class="stand">
                           <div class="content">
 
                           </div>
                         </div>
-               
+
 
                         <div class="container2">
                           <button id="speak" class="button button--piyo btn2 disable">
@@ -203,7 +202,7 @@
         <!-- footer start -->
         <div class="row ">
           <div class="col-xs-12 footer">
-            <div class="box1 " >
+            <div class="box1 ">
               <div class="reloadBtnAll disable">
                 <img src="assets/images/replay_icon.png" class="img-responsive" />
               </div>
@@ -286,14 +285,9 @@
     </div>
   </div>
 
-  <script type="text/javascript">
-    $(function () {
-      fnSetPlayer();
-      fnTemplate1_v1($('div.active'));
-    });
-  </script>
-  <script type="text/javascript" src="js/template/p7e8.js"></script>
+
   <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/template/p7e8.js"></script>
 </body>
 
 </html>

@@ -139,3 +139,7 @@ $(function() {
 	});	
 	$('body').attr('unselectable', 'on').css('user-select', 'none').on('selectstart dragstart', false);
 });
+
+$(".wrapper").on("click",function () {
+	$(".wrapper").addClass("wrapperAnim")
+})
